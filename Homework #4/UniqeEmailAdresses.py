@@ -6,6 +6,5 @@ def getRealMail(email):
         adress = adress[0:adress.find('+')]
     return adress + domain
 
-def getUniqEmails(*emails):
-    print(set((getRealMail(mail) for mail in emails)))
+def getUniqEmails(emails):
     return len(set((getRealMail(mail) for mail in emails))) 

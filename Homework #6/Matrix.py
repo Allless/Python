@@ -93,5 +93,10 @@ class Matrix:
         else:
             sum = 0
             for i in range(len(self._matrix)):
-                sum += Matrix(list = [[col[l] for l in range(len(col)) if l != i] for col in self._matrix[1:]]).determinant * self._matrix[0][i] * (-1)**(i)
+                minor = Matrix(list = [[col[l] for l in range(len(col)) if l != i] for col in self._matrix[1:]])
+                sum += minor.determinant * self._matrix[0][i] * (-1)**(i)
             return sum
+
+a = Matrix(list = [[5,0,1],[1,2,3],[3,3,2]])
+b = Matrix(list = [[5,0,11],[1,2,5],[3,3,4]])
+print(a.determinant, b.determinant)
